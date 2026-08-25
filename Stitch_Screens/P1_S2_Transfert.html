@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+
+<html class="light" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MG Drop - Transferring</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#dbe4e5",
+                        "outline-variant": "#c4c6d2",
+                        "primary-fixed-dim": "#b3c5ff",
+                        "surface": "#f2fbfc",
+                        "tertiary-fixed-dim": "#00dfc2",
+                        "surface-container": "#e6f0f1",
+                        "inverse-primary": "#b3c5ff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed-variant": "#27438a",
+                        "on-secondary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "on-surface": "#151d1e",
+                        "inverse-on-surface": "#e9f2f3",
+                        "on-tertiary-container": "#00b199",
+                        "surface-dim": "#d3dcdd",
+                        "secondary-container": "#c5dcfe",
+                        "on-tertiary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-primary-container": "#819ae7",
+                        "surface-bright": "#f2fbfc",
+                        "secondary": "#4a607d",
+                        "tertiary": "#00241e",
+                        "tertiary-fixed": "#3afdde",
+                        "on-error-container": "#93000a",
+                        "surface-container-high": "#e1eaeb",
+                        "background": "#f2fbfc",
+                        "outline": "#757682",
+                        "tertiary-container": "#003c33",
+                        "on-secondary-fixed": "#031c36",
+                        "secondary-fixed": "#d3e4ff",
+                        "inverse-surface": "#293233",
+                        "primary": "#001a52",
+                        "on-tertiary-fixed": "#00201b",
+                        "primary-container": "#0e2f76",
+                        "on-secondary-container": "#4b607d",
+                        "surface-container-highest": "#dbe4e5",
+                        "on-primary-fixed": "#00174a",
+                        "surface-tint": "#415ba3",
+                        "on-error": "#ffffff",
+                        "surface-container-low": "#ecf5f6",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#005045",
+                        "secondary-fixed-dim": "#b2c8e9",
+                        "on-secondary-fixed-variant": "#334864",
+                        "primary-fixed": "#dbe1ff",
+                        "on-surface-variant": "#444651",
+                        "on-background": "#151d1e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-margin-desktop": "40px",
+                        "gutter": "16px",
+                        "container-margin-mobile": "20px",
+                        "section-gap": "32px",
+                        "unit": "8px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "title-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "display-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "title-lg": ["22px", { "lineHeight": "28px", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "26px", "fontWeight": "400" }],
+                        "headline-lg": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "display-md": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .bottom-sheet-enter {
+            animation: slideUp 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+        @keyframes slideUp {
+            from { transform: translateY(100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .progress-ring__circle {
+            transition: stroke-dashoffset 0.35s;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background min-h-screen relative font-body-md text-on-background overflow-hidden antialiased">
+<!-- Mock Background App Content (Blurred) -->
+<div class="absolute inset-0 z-0">
+<!-- Top App Bar Mock -->
+<header class="bg-surface/60 backdrop-blur-xl border-b border-white/20 shadow-sm flex items-center justify-between px-container-margin-mobile h-16 fixed top-0 w-full z-10">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary" data-weight="fill" style="font-variation-settings: 'FILL' 1;">grid_view</span>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-bold tracking-tighter text-primary">MG Drop</h1>
+</div>
+<div class="w-8 h-8 rounded-full bg-secondary-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A small, circular avatar portrait of a professional in a modern, light-filled office. The lighting is soft and natural, emphasizing a clean, contemporary aesthetic consistent with a premium corporate application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC85yM2v4TdS4uWSuHQW6Pz1U20R7ELxt8FtSH9bAVM-gfPLStK2o6nC4ibWCfbJ0ABnSz75Bnc5EIOJIrkypuavRk3soqOjie1_Y4LNUne-wZQYi0hEXDxafSoS-jlbeqj4sBj-aFmRH3sjL4yFRe_FEfsUZ07-qDtoslf6VTCMoChETKCT-EfwHzrAa2hMf5KkGWTu-wPRfZbIVNen3oYza8QMeznGK8UFY2mOlnIs-TLdXY5Luwdrg"/>
+</div>
+</header>
+<!-- Main Content Area Mock -->
+<main class="pt-24 px-container-margin-mobile pb-32 grid grid-cols-2 md:grid-cols-4 gap-gutter filter blur-md opacity-60">
+<!-- Mock File Cards -->
+<div class="col-span-2 bg-white/60 backdrop-blur-[20px] border border-white/20 rounded-lg p-4 shadow-sm h-32"></div>
+<div class="col-span-2 bg-white/60 backdrop-blur-[20px] border border-white/20 rounded-lg p-4 shadow-sm h-32"></div>
+<div class="col-span-full bg-white/60 backdrop-blur-[20px] border border-white/20 rounded-lg p-4 shadow-sm h-48 mt-section-gap"></div>
+<div class="col-span-2 bg-white/60 backdrop-blur-[20px] border border-white/20 rounded-lg p-4 shadow-sm h-32 mt-section-gap"></div>
+<div class="col-span-2 bg-white/60 backdrop-blur-[20px] border border-white/20 rounded-lg p-4 shadow-sm h-32 mt-section-gap"></div>
+</main>
+<!-- Bottom Nav Bar Mock -->
+<nav class="bg-surface/80 backdrop-blur-2xl border-t border-white/20 shadow-[0_-12px_32px_rgba(14,47,118,0.12)] fixed bottom-0 w-full rounded-t-xl z-10 flex justify-around items-center px-4 py-3 pb-8">
+<div class="flex flex-col items-center justify-center bg-secondary-container text-primary rounded-full px-6 py-2">
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: 'FILL' 1;">swap_horizontal_circle</span>
+<span class="font-label-sm text-label-sm mt-1">Transfer</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">folder_open</span>
+<span class="font-label-sm text-label-sm mt-1">Files</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-label-sm text-label-sm mt-1">Activity</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">lock</span>
+<span class="font-label-sm text-label-sm mt-1">Vault</span>
+</div>
+</nav>
+</div>
+<!-- Modal Backdrop -->
+<div class="fixed inset-0 z-40 bg-on-background/20 backdrop-blur-[30px] transition-opacity duration-300"></div>
+<!-- Bottom Sheet Modal (Transferring State) -->
+<div class="fixed bottom-0 left-0 w-full z-50 bottom-sheet-enter px-4 pb-6">
+<div class="bg-[#F5FEFF] rounded-[30px] shadow-[0_12px_32px_rgba(14,47,118,0.12)] border border-white/40 p-8 flex flex-col items-center justify-center relative overflow-hidden max-w-md mx-auto">
+<!-- Drag Handle Indicator -->
+<div class="w-12 h-1.5 bg-outline-variant/50 rounded-full absolute top-4 left-1/2 -translate-x-1/2"></div>
+<!-- Transfer Details (Top) -->
+<div class="w-full flex justify-between items-center mb-8 mt-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">description</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Sending to</p>
+<p class="font-title-lg text-title-lg text-on-surface">Design Team</p>
+</div>
+</div>
+<button class="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant hover:bg-surface-dim transition-colors">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Progress Gauge -->
+<div class="relative w-48 h-48 flex items-center justify-center mb-6">
+<svg class="w-full h-full absolute inset-0" viewbox="0 0 120 120">
+<!-- Background Circle -->
+<circle cx="60" cy="60" fill="none" r="54" stroke="#e6f0f1" stroke-width="6"></circle>
+<!-- Progress Circle -->
+<circle class="progress-ring__circle" cx="60" cy="60" fill="none" r="54" stroke="#AAC0E1" stroke-dasharray="339.292" stroke-dashoffset="186.61" stroke-linecap="round" stroke-width="6"></circle>
+</svg>
+<!-- Central Value -->
+<span class="font-display-md text-display-md text-primary font-bold">45%</span>
+</div>
+<!-- Status Text -->
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile font-semibold text-[#0E2F76] mb-2">Envoi en cours...</h2>
+<!-- File Info Pill -->
+<div class="bg-surface-variant/50 border border-white/30 rounded-full px-4 py-2 mt-4 flex items-center gap-2">
+<span class="font-label-md text-label-md text-on-surface-variant">Q3_Assets_v2.zip</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="font-label-md text-label-md text-on-surface-variant">1.2 GB / 2.8 GB</span>
+</div>
+<!-- Cancel Button -->
+<button class="mt-8 px-8 py-3 rounded-full border border-outline-variant text-on-surface-variant font-label-md text-label-md hover:bg-surface-variant transition-colors">
+                Annuler
+            </button>
+</div>
+</div>
+</body></html>

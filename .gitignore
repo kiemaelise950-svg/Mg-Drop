@@ -1,0 +1,11 @@
+# .NET/C# ignores
+[Bb]in/
+[Oo]bj/
+*.user
+*.suo
+.vs/
+
+# Mac/OSX
+.DS_Store
+
+# Flutter is already ignored via mgdrop_client/.gitignore

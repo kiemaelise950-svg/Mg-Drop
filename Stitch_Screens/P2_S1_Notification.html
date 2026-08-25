@@ -1,0 +1,202 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>MG Drop Notification</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "surface-tint": "#415ba3",
+                "error": "#ba1a1a",
+                "inverse-primary": "#b3c5ff",
+                "tertiary-container": "#58260e",
+                "ice-blur": "#b3c5ff33",
+                "on-primary-fixed-variant": "#27438a",
+                "outline": "#757682",
+                "surface-dim": "#ccdbf3",
+                "on-background": "#0d1c2e",
+                "surface-container-low": "#eff4ff",
+                "on-tertiary-container": "#d48b6c",
+                "primary-container": "#0e2f76",
+                "on-tertiary": "#ffffff",
+                "on-surface-variant": "#444651",
+                "on-primary-container": "#819ae7",
+                "tertiary": "#3c1100",
+                "surface": "#f8f9ff",
+                "on-error": "#ffffff",
+                "secondary-container": "#c5dcfe",
+                "surface-container-highest": "#d5e3fc",
+                "primary-fixed-dim": "#b3c5ff",
+                "on-tertiary-fixed": "#360f00",
+                "primary-fixed": "#dbe1ff",
+                "on-surface": "#0d1c2e",
+                "error-container": "#ffdad6",
+                "on-error-container": "#93000a",
+                "background": "#f8f9ff",
+                "secondary": "#4a607d",
+                "on-primary": "#ffffff",
+                "surface-glacial": "#f8f9ff",
+                "outline-variant": "#c4c6d2",
+                "surface-bright": "#f8f9ff",
+                "tertiary-fixed": "#ffdbcd",
+                "on-secondary": "#ffffff",
+                "secondary-fixed": "#d2e4ff",
+                "inverse-surface": "#233144",
+                "inverse-on-surface": "#eaf1ff",
+                "secondary-fixed-dim": "#b1c8ea",
+                "surface-variant": "#d5e3fc",
+                "surface-container-lowest": "#ffffff",
+                "progress-gradient-start": "#b2c8e9",
+                "on-secondary-fixed-variant": "#324864",
+                "tertiary-fixed-dim": "#ffb597",
+                "on-secondary-container": "#4a607e",
+                "on-secondary-fixed": "#021c36",
+                "surface-container-high": "#dce9ff",
+                "primary": "#001a52",
+                "progress-gradient-end": "#0e2f76",
+                "on-tertiary-fixed-variant": "#6f371f",
+                "surface-container": "#e6eeff",
+                "on-primary-fixed": "#00174a"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "container-padding": "20px",
+                "stack-gap": "12px",
+                "unit": "4px",
+                "inline-gap": "8px",
+                "card-margin": "16px"
+        },
+        "fontFamily": {
+                "body-sm": [
+                        "Inter"
+                ],
+                "headline-md": [
+                        "Inter"
+                ],
+                "body-lg": [
+                        "Inter"
+                ],
+                "display-lg": [
+                        "Inter"
+                ],
+                "headline-md-mobile": [
+                        "Inter"
+                ],
+                "label-md": [
+                        "Inter"
+                ]
+        },
+        "fontSize": {
+                "body-sm": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-md": [
+                        "20px",
+                        {
+                                "lineHeight": "28px",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "body-lg": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "display-lg": [
+                        "30px",
+                        {
+                                "lineHeight": "38px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "headline-md-mobile": [
+                        "18px",
+                        {
+                                "lineHeight": "24px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "label-md": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "letterSpacing": "0.02em",
+                                "fontWeight": "500"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+        .notification-enter {
+            animation: slideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%) translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0) translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body class="bg-transparent h-screen w-screen overflow-hidden relative font-body-sm text-body-sm text-on-surface">
+<!-- Overlay Desktop Environment Simulation (Transparent in production, shown here slightly for context) -->
+<div class="absolute inset-0 bg-transparent flex items-end justify-end p-8 pointer-events-none">
+<!-- Notification Card -->
+<div class="bg-white/10 backdrop-blur-xl w-full max-w-[380px] rounded-3xl shadow-lg border border-white/30 p-container-padding flex flex-col gap-stack-gap pointer-events-auto notification-enter relative overflow-hidden">
+<!-- Header -->
+<div class="flex justify-between items-center w-full"><div class="flex items-center gap-inline-gap text-[#0E2F76]"><span aria-hidden="true" class="material-symbols-outlined" data-icon="cloud_download" style="font-variation-settings: 'FILL' 1;">cloud_download</span><span class="font-headline-md text-headline-md font-bold">MG Drop</span></div><span class="font-label-md text-label-md text-[#AAC0E1]">À l'instant</span></div>
+<!-- Content Area -->
+<div class="flex flex-col items-center justify-center gap-stack-gap py-unit">
+<!-- File Preview Placeholder -->
+<div class="w-24 h-24 rounded-2xl bg-white/20 border border-white/20 flex items-center justify-center relative overflow-hidden group">
+<img class="absolute inset-0 w-full h-full object-cover opacity-80 mix-blend-multiply group-hover:scale-105 transition-transform duration-500 ease-out" data-alt="A clean, modern 3D render of a file folder or document icon floating in a bright, ethereal studio environment. Soft, diffuse lighting highlights the smooth, premium textures. The color palette is composed of glacial whites and pale secondary blues, reflecting a highly polished corporate aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmVo-jisPaoZVa7mS8ud5rRySdbmxywFNcIbAYwscg1B2jLWFl2SaSi2b3WMkvfbn1DKTNMleI-E3FchwHc9Ie7Hxmgxbs_Ef0AsDAnmsDbJX-HtIcTRVqZBBZ299U6842HrROgMirzdSIJDtdlWt4dDTpjS6KE4fSCNeVZIBJqhRiswMFoIcELRDLhX3RvSoWGKtDWt6eqxLo3J9QyK1OVcHMOzGjvoYzBj-B7JRt8OrXsR-Ei5eLGQ">
+<span aria-hidden="true" class="material-symbols-outlined text-white opacity-80 relative z-10" data-icon="insert_drive_file" style="font-size: 32px;">insert_drive_file</span>
+</div>
+<!-- Description -->
+<p class="font-body-lg text-body-lg text-[#0E2F76] text-center px-4 leading-snug">
+                    Fichier reçu depuis Tecno Camon
+                </p>
+<div class="w-full bg-white/20 h-1 rounded-full overflow-hidden mt-1">
+<div class="bg-gradient-to-r from-white/50 to-white h-full w-full rounded-full"></div>
+</div>
+</div>
+<!-- Footer / Actions -->
+<div class="flex justify-end gap-inline-gap mt-unit">
+<button class="px-4 py-2 rounded-full font-label-md text-label-md text-[#0E2F76] border border-[#AAC0E1]/30 hover:bg-white/20 transition-colors focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-transparent">
+                    Fermer
+                </button>
+<button class="px-6 py-2 rounded-full font-label-md text-label-md bg-white text-[#0E2F76] hover:opacity-90 hover:shadow-md transition-all active:scale-95 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-transparent">
+                    Ouvrir
+                </button>
+</div>
+</div>
+</div>
+
+
+</body></html>

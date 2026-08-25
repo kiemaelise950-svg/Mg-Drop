@@ -1,0 +1,176 @@
+<Window x:Class="MgDrop.Server.Views.NotificationOverlay"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MG Drop Notification"
+        Width="380"
+        SizeToContent="Height"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        ShowInTaskbar="False"
+        Topmost="True"
+        ResizeMode="NoResize"
+        Opacity="0"
+        Loaded="Window_Loaded">
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- MG DROP — NOTIFICATION OVERLAY (Glassmorphic)                     -->
+    <!-- Traduit fidèlement du design Stitch "MG Drop Notification Overlay"-->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <!-- ── Conteneur principal : Carte glassmorphique ───────────────────── -->
+    <Border x:Name="CardBorder"
+            Margin="12"
+            CornerRadius="24"
+            Padding="20"
+            BorderThickness="1"
+            BorderBrush="{StaticResource GlassBorderBrush}">
+
+        <Border.RenderTransform>
+            <TranslateTransform x:Name="SlideTransform" Y="20" />
+        </Border.RenderTransform>
+
+        <!-- Fond glassmorphique (semi-transparent + ombre de lévitation) -->
+        <Border.Background>
+            <SolidColorBrush Color="#E8F0F8" Opacity="0.92" />
+        </Border.Background>
+
+        <Border.Effect>
+            <DropShadowEffect Color="#000000"
+                              Opacity="0.15"
+                              BlurRadius="30"
+                              ShadowDepth="8"
+                              Direction="270" />
+        </Border.Effect>
+
+        <StackPanel>
+
+            <!-- ── HEADER ────────────────────────────────────────────── -->
+            <DockPanel LastChildFill="True" Margin="0,0,0,12">
+                <!-- Logo + Titre -->
+                <StackPanel Orientation="Horizontal" DockPanel.Dock="Left"
+                            VerticalAlignment="Center">
+                    <!-- Icône cloud_download (cercle bleu) -->
+                    <Border Width="28" Height="28"
+                            CornerRadius="14"
+                            Background="{StaticResource PrimaryBrush}"
+                            Margin="0,0,8,0">
+                        <TextBlock Text="↓"
+                                   FontSize="14"
+                                   FontWeight="Bold"
+                                   Foreground="White"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center" />
+                    </Border>
+                    <TextBlock Text="MG Drop"
+                               FontFamily="{StaticResource PrimaryFont}"
+                               FontSize="20"
+                               FontWeight="Bold"
+                               Foreground="{StaticResource PrimaryBrush}"
+                               VerticalAlignment="Center" />
+                </StackPanel>
+
+                <!-- Timestamp -->
+                <TextBlock x:Name="TimestampText"
+                           Text="À l'instant"
+                           FontFamily="{StaticResource PrimaryFont}"
+                           FontSize="12"
+                           FontWeight="Medium"
+                           Foreground="{StaticResource SecondaryBrush}"
+                           DockPanel.Dock="Right"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Right" />
+            </DockPanel>
+
+            <!-- ── CONTENT AREA ──────────────────────────────────────── -->
+            <StackPanel HorizontalAlignment="Center" Margin="0,4,0,8">
+
+                <!-- Miniature du fichier (placeholder carré arrondi) -->
+                <Border x:Name="FileThumbnailBorder"
+                        Width="96" Height="96"
+                        CornerRadius="16"
+                        Background="#33FFFFFF"
+                        BorderBrush="#33FFFFFF"
+                        BorderThickness="1"
+                        HorizontalAlignment="Center"
+                        Margin="0,0,0,12"
+                        ClipToBounds="True">
+                    <!-- Icône fichier par défaut -->
+                    <Grid>
+                        <Image x:Name="FileThumbnail"
+                               Stretch="UniformToFill"
+                               Opacity="0.8" />
+                        <TextBlock x:Name="FileIconText"
+                                   Text="📄"
+                                   FontSize="32"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Opacity="0.8" />
+                    </Grid>
+                </Border>
+
+                <!-- Description -->
+                <TextBlock x:Name="FileDescriptionText"
+                           Text="Fichier reçu depuis le smartphone"
+                           FontFamily="{StaticResource PrimaryFont}"
+                           FontSize="16"
+                           Foreground="{StaticResource PrimaryBrush}"
+                           TextAlignment="Center"
+                           TextWrapping="Wrap"
+                           Padding="16,0"
+                           LineHeight="24" />
+
+                <!-- Nom du fichier -->
+                <TextBlock x:Name="FileNameText"
+                           Text=""
+                           FontFamily="{StaticResource PrimaryFont}"
+                           FontSize="12"
+                           FontWeight="Medium"
+                           Foreground="{StaticResource SecondaryBrush}"
+                           TextAlignment="Center"
+                           Margin="0,4,0,0"
+                           TextTrimming="CharacterEllipsis"
+                           MaxWidth="320" />
+
+                <!-- Barre de progression (subtile, style Stitch) -->
+                <Border Height="3"
+                        CornerRadius="2"
+                        Margin="0,10,0,0"
+                        Background="#33FFFFFF"
+                        HorizontalAlignment="Stretch">
+                    <Border x:Name="ProgressBar"
+                            CornerRadius="2"
+                            HorizontalAlignment="Left"
+                            Width="0">
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                <GradientStop Color="#80FFFFFF" Offset="0" />
+                                <GradientStop Color="#FFFFFFFF" Offset="1" />
+                            </LinearGradientBrush>
+                        </Border.Background>
+                    </Border>
+                </Border>
+            </StackPanel>
+
+            <!-- ── FOOTER / ACTIONS ──────────────────────────────────── -->
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Right"
+                        Margin="0,8,0,0">
+
+                <!-- Bouton Fermer -->
+                <Button x:Name="CloseButton"
+                        Content="Fermer"
+                        Style="{StaticResource GhostButtonStyle}"
+                        Click="CloseButton_Click"
+                        Margin="0,0,8,0" />
+
+                <!-- Bouton Ouvrir -->
+                <Button x:Name="OpenButton"
+                        Content="Ouvrir"
+                        Style="{StaticResource PrimaryButtonStyle}"
+                        Click="OpenButton_Click" />
+            </StackPanel>
+
+        </StackPanel>
+    </Border>
+</Window>

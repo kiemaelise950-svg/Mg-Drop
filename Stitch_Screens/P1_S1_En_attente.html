@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+
+<html class="light" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>MG Drop - En attente</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#dbe4e5",
+                        "outline-variant": "#c4c6d2",
+                        "primary-fixed-dim": "#b3c5ff",
+                        "surface": "#f2fbfc",
+                        "tertiary-fixed-dim": "#00dfc2",
+                        "surface-container": "#e6f0f1",
+                        "inverse-primary": "#b3c5ff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed-variant": "#27438a",
+                        "on-secondary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "on-surface": "#151d1e",
+                        "inverse-on-surface": "#e9f2f3",
+                        "on-tertiary-container": "#00b199",
+                        "surface-dim": "#d3dcdd",
+                        "secondary-container": "#c5dcfe",
+                        "on-tertiary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-primary-container": "#819ae7",
+                        "surface-bright": "#f2fbfc",
+                        "secondary": "#4a607d",
+                        "tertiary": "#00241e",
+                        "tertiary-fixed": "#3afdde",
+                        "on-error-container": "#93000a",
+                        "surface-container-high": "#e1eaeb",
+                        "background": "#f2fbfc",
+                        "outline": "#757682",
+                        "tertiary-container": "#003c33",
+                        "on-secondary-fixed": "#031c36",
+                        "secondary-fixed": "#d3e4ff",
+                        "inverse-surface": "#293233",
+                        "primary": "#001a52",
+                        "on-tertiary-fixed": "#00201b",
+                        "primary-container": "#0e2f76",
+                        "on-secondary-container": "#4b607d",
+                        "surface-container-highest": "#dbe4e5",
+                        "on-primary-fixed": "#00174a",
+                        "surface-tint": "#415ba3",
+                        "on-error": "#ffffff",
+                        "surface-container-low": "#ecf5f6",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#005045",
+                        "secondary-fixed-dim": "#b2c8e9",
+                        "on-secondary-fixed-variant": "#334864",
+                        "primary-fixed": "#dbe1ff",
+                        "on-surface-variant": "#444651",
+                        "on-background": "#151d1e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-margin-desktop": "40px",
+                        "gutter": "16px",
+                        "container-margin-mobile": "20px",
+                        "section-gap": "32px",
+                        "unit": "8px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "title-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "display-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "title-lg": ["22px", { "lineHeight": "28px", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "26px", "fontWeight": "400" }],
+                        "headline-lg": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "display-md": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        /* Custom modal animation */
+        @keyframes slideUp {
+            from { transform: translateY(100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .modal-enter {
+            animation: slideUp 0.5s cubic-bezier(0.32, 0.72, 0, 1) forwards;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface h-screen w-screen overflow-hidden font-body-md select-none">
+<!-- Fake Background App Interface -->
+<div class="absolute inset-0 z-0 bg-surface-container-low" data-alt="A modern mobile operating system interface showing a photo gallery grid. The images are bright, high-quality professional photographs of architecture and nature. The overall aesthetic is sleek, minimalist, and uses a light mode theme with subtle icy white and pale blue tones to match a premium hardware ecosystem. Soft lighting highlights the grid layout structure." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAwIxOUWn-C7pO1UaXuZz9nqcH41KKUfVz6FLRzLB_eaqp5X5oeeEDk91myeTTPVKzE-1j36Kak3xwBpS8kPJlceVb5d0_lh5zSGgCpOV36huwW0Y_5m__QFMpYrWVeGSTee3aH57SLa5fDPZnT2GwLxGhu6DmkCHLPKXTkkjg2uSrYnowlpNTdMTmlJdL-gqCFCKH41CYIzihS__D3DOKpiQpMP_7pFBWz9IQDP0SiPejrAQ8VSLnTtA')">
+<!-- Content simulated by background image for depth -->
+</div>
+<!-- Full Screen Blur Overlay (Glassmorphism) -->
+<div class="absolute inset-0 z-10 bg-surface/40 backdrop-blur-[30px]"></div>
+<!-- Modal Bottom Sheet -->
+<div class="absolute bottom-0 left-0 right-0 z-20 flex flex-col items-center modal-enter">
+<div class="w-full max-w-md bg-[#F5FEFF] rounded-t-[30px] shadow-[0_-12px_32px_rgba(14,47,118,0.12)] border-t border-white/40 px-6 pt-3 pb-12 flex flex-col items-center relative overflow-hidden">
+<!-- Drag Handle -->
+<div class="w-12 h-1.5 bg-outline-variant/50 rounded-full mb-10"></div>
+<!-- Animation Container -->
+<div class="relative w-48 h-48 mb-8 flex items-center justify-center">
+<!-- Shader Animation -->
+
+<!-- Central Icon -->
+<div class="relative z-10 w-20 h-20 bg-primary rounded-full flex items-center justify-center shadow-lg border-2 border-white/20">
+<span class="material-symbols-outlined text-white text-[40px] fill" data-icon="contactless">contactless</span>
+</div>
+</div>
+<!-- Typography -->
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-[#0E2F76] mb-2 text-center">En attente du PC...</h2>
+<p class="font-body-md text-body-md text-on-surface-variant text-center opacity-80">Approchez le téléphone du capteur</p>
+<!-- Cancel Button (Optional but common in iOS) -->
+<button class="mt-8 px-6 py-3 rounded-full bg-surface-variant/50 text-on-surface-variant font-label-md text-label-md hover:bg-surface-variant transition-colors">
+                Annuler
+            </button>
+</div>
+</div>
+</body></html>

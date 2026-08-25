@@ -1,0 +1,362 @@
+<mxfile host="Electron">
+  <diagram name="Page-1" id="amrASXBndZCn-3AEw-SV">
+    <mxGraphModel dx="573" dy="418" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <UserObject label="" plantUmlData="{&#xa;  &quot;data&quot;: &quot;@startuml\nskinparam backgroundColor #F5FEFF\nskinparam component {\n  BackgroundColor #AAC0E1\n  BorderColor #0E2F76\n  FontColor #0E2F76\n}\nskinparam node {\n  BackgroundColor #F5FEFF\n  BorderColor #0E2F76\n  FontColor #0E2F76\n}\nskinparam interface {\n  BackgroundColor #0E2F76\n  BorderColor #0E2F76\n}\nskinparam arrowColor #0E2F76\nskinparam note {\n  BackgroundColor #F5FEFF\n  BorderColor #0E2F76\n}\n\nnode \&quot;Matériel : Tecno Camon (Client)\&quot; {\n  component \&quot;Application Modeste Graphics\\n(Flutter / Android)\&quot; as AppAndroid {\n    [Intercepteur de Partage\\n(receive_sharing_intent)] as ShareIntent\n    [Module UI/UX\\n(Bottom Sheet &amp; Dynamic Port)] as UIAndroid\n    [Gestionnaire NFC\\n(nfc_manager)] as NFCManager\n    [Client TCP\\n(Socket / Wi-Fi)] as TCPClient\n  }\n  interface \&quot;Capteur NFC\\n(Matériel)\&quot; as HardwareNFCAndroid\n  interface \&quot;Carte Wi-Fi\\n(Matériel)\&quot; as WifiAndroid\n  \n  ShareIntent --&gt; UIAndroid : 1. Déclenche l&#39;UI\n  UIAndroid --&gt; NFCManager : 2. Active l&#39;écoute\n  NFCManager ..&gt; HardwareNFCAndroid : Lit le tag NDEF\n  TCPClient ..&gt; WifiAndroid : Envoie le fichier\n}\n\nnode \&quot;Matériel : Dell Latitude (Serveur)\&quot; {\n  component \&quot;Service Modeste Graphics\\n(C# WPF / Windows)\&quot; as AppWindows {\n    [Service d&#39;Arrière-plan\\n(System Tray)] as BackgroundService\n    [Contrôleur NFC\\n(Proximity API)] as NFCProximity\n    [Écouteur TCP\\n(TcpListener Port 8080)] as TCPListener\n    [Système de Fichiers\\n(Dossier Téléchargements)] as FileManager\n    [Overlay WPF\\n(Fenêtre sans bordure)] as UIWindows\n  }\n  interface \&quot;Pilote Proximity Provider\\n(Matériel)\&quot; as HardwareNFCWindows\n  interface \&quot;Carte Wi-Fi\\n(Matériel)\&quot; as WifiWindows\n  \n  BackgroundService --&gt; NFCProximity : 1. Configure l&#39;IP\n  BackgroundService --&gt; TCPListener : 2. Ouvre le port\n  NFCProximity ..&gt; HardwareNFCWindows : Diffuse le signal\n  WifiWindows ..&gt; TCPListener : Reçoit les données\n  TCPListener --&gt; FileManager : 3. Sauvegarde\n  FileManager --&gt; UIWindows : 4. Invoque la carte\n}\n\ncloud \&quot;Réseau Local (Wi-Fi)\&quot; as LocalNetwork\n\nHardwareNFCWindows &lt;..&gt; HardwareNFCAndroid : Contact Physique (Handshake)\nWifiAndroid --&gt; LocalNetwork : Flux binaire\nLocalNetwork --&gt; WifiWindows : Flux binaire\n\n@enduml&quot;,&#xa;  &quot;config&quot;: null&#xa;}" id="mlQdYnRGOc0fhGw4Xrnx-1">
+          <mxCell connectable="0" parent="1" style="group;transparentBounds=1;editIcon=1;lockedGroup=0;groupPadding=10;" vertex="1">
+            <mxGeometry as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Matériel : Tecno Camon (Client)" plantUmlId="c_0" plantUmlBaseStyle="shape=cube;size=10;fillColor=none;strokeColor=#181818;verticalAlign=top;align=center;spacingTop=16;fontSize=14;fontStyle=1;whiteSpace=wrap;" plantUmlBaseValue="Matériel : Tecno Camon (Client)" id="mlQdYnRGOc0fhGw4Xrnx-2">
+          <mxCell parent="mlQdYnRGOc0fhGw4Xrnx-1" style="shape=cube;size=10;fillColor=none;strokeColor=#181818;verticalAlign=top;align=center;spacingTop=16;fontSize=14;fontStyle=1;whiteSpace=wrap;" vertex="1">
+            <mxGeometry height="487" width="451" x="30" y="750" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" plantUmlId="n_1" plantUmlBaseStyle="ellipse;fillColor=#F1F1F1;strokeColor=#181818;" plantUmlBaseValue="" id="mlQdYnRGOc0fhGw4Xrnx-3">
+          <mxCell parent="mlQdYnRGOc0fhGw4Xrnx-2" style="ellipse;fillColor=#F1F1F1;strokeColor=#181818;" vertex="1">
+            <mxGeometry height="18" width="18" x="153.5" y="431" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Capteur NFC&#xa;(Matériel)" plantUmlId="cap_2" plantUmlBaseStyle="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;fontSize=14;whiteSpace=wrap;" plantUmlBaseValue="Capteur NFC&#xa;(Matériel)" id="mlQdYnRGOc0fhGw4Xrnx-4">
+          <mxCell parent="mlQdYnRGOc0fhGw4Xrnx-2" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;fontSize=14;whiteSpace=wrap;" vertex="1">
+            <mxGeometry height="22" width="85" x="120" y="449" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" plantUmlId="n_3" plantUmlBaseStyle="ellipse;fillColor=#F1F1F1;strokeColor=#181818;" plantUmlBaseValue="" id="mlQdYnRGOc0fhGw4Xrnx-5">
+          <mxCell parent="mlQdYnRGOc0fhGw4Xrnx-2" style="ellipse;fillColor=#F1F1F1;strokeColor=#181818;" vertex="1">
+            <mxGeometry height="18" width="18" x="271.5" y="431" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Carte Wi-Fi&#xa;(Matériel)" plantUmlId="cap_4" plantUmlBaseStyle="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;fontSize=14;whiteSpace=wrap;" plantUmlBaseValue="Carte Wi-Fi&#xa;(Matériel)" id="mlQdYnRGOc0fhGw4Xrnx-6">
+          <mxCell parent="mlQdYnRGOc0fhGw4Xrnx-2" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;fontSize=14;whiteSpace=wrap;" vertex="1">
+            <mxGeometry height="22" width="81" x="240" y="449" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Application Modeste Graphics&#xa;(Flutter / Android)" plantUmlId="c_5" plantUmlBaseStyle="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=none;strokeColor=#181818;verticalAlign=top;align=center;spacingTop=10;fontSize=14;whiteSpace=wrap;" plantUmlBaseValue="Application Modeste Graphics&#xa;(Flutter / Android)" id="mlQdYnRGOc0fhGw4Xrnx-7">
+          <mxCell parent="mlQdYnRGOc0fhGw4Xrnx-2" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=none;strokeColor=#181818;verticalAlign=top;align=center;spacingTop=10;fontSize=14;whiteSpace=wrap;" vertex="1">
+            <mxGeometry height="328" width="411" x="15" y="43" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Intercepteur de Partage&#xa;(receive_sharing_intent)" plantUmlId="n_9" plantUmlBaseStyle="rounded=1;absoluteArcSize=1;arcSize=6;fillColor=#F1F1F1;strokeColor=#181818;fontSize=14;whiteSpace=wrap;" plantUmlBaseValue="Intercepteur de Partage&#xa;(receive_sharing_intent)" id="mlQdYnRGOc0fhGw4Xrnx-8">
+          <mxCell parent="mlQdYnRGOc0fhGw4Xrnx-7" style="rounded=1;absoluteArcSize=1;arcSize=6;fillColor=#F1F1F1;strokeColor=#181818;fontSize=14;whiteSpace=wrap;" vertex="1">
+            <mxGeometry height="49" width="202" x="15" y="49" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" plantUmlId="ci_10" plantUmlBaseStyle="rounded=0;fillColor=#F1F1F1;strokeColor=#181818;" plantUmlBaseValue="" id="mlQdYnRGOc0fhGw4Xrnx-9">
+          <mxCell parent="mlQdYnRGOc0fhGw4Xrnx-7" style="rounded=0;fillColor=#F1F1F1;strokeColor=#181818;" vertex="1">
+            <mxGeometry height="10" width="15" x="197" y="54" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" plantUmlId="ci_11" plantUmlBaseStyle="fillColor=#F1F1F1;strokeColor=#181818;" plantUmlBaseValue="" id="mlQdYnRGOc0fhGw4Xrnx-10">
+          <mxCell parent="mlQdYnRGOc0fhGw4Xrnx-7" style="fillColor=#F1F1F1;strokeColor=#181818;" vertex="1">
+            <mxGeometry height="2" width="4" x="195" y="56" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" plantUmlId="ci_12" plantUmlBaseStyle="fillColor=#F1F1F1;strokeColor=#181818;" plantUmlBaseValue="" id="mlQdYnRGOc0fhGw4Xrnx-11">
+          <mxCell parent="mlQdYnRGOc0fhGw4Xrnx-7" style="fillColor=#F1F1F1;strokeColor=#181818;" vertex="1">
+            <mxGeometry height="2" width="4" x="195" y="60" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Module UI/UX&#xa;(Bottom Sheet &amp; Dynamic Port)" plantUmlId="n_13" plantUmlBaseStyle="rounded=1;absoluteArcSize=1;arcSize=6;fillColor=#F1F1F1;strokeColor=#181818;fontSize=14;whiteSpace=wrap;" plantUmlBaseValue="Module UI/UX&#xa;(Bottom Sheet &amp; Dynamic Port)" id="mlQdYnRGOc0fhGw4Xrnx-12">
+          <mxCell parent="mlQdYnRGOc0fhGw4Xrnx-7" style="rounded=1;absoluteArcSize=1;arcSize=6;fillColor=#F1F1F1;strokeColor=#181818;fontSize=14;whiteSpace=wrap;" vertex="1">
+            <mxGeometry height="49" width="234" x="88.5" y="158" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" plantUmlId="ci_14" plantUmlBaseStyle="rounded=0;fillColor=#F1F1F1;strokeColor=#181818;" plantUmlBaseValue="" id="mlQdYnRGOc0fhGw4Xrnx-13">
+          <mxCell parent="mlQdYnRGOc0fhGw4Xrnx-7" style="rounded=0;fillColor=#F1F1F1;strokeColor=#181818;" vertex="1">
+            <mxGeometry height="10" width="15" x="302.5" y="163" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" plantUmlId="ci_15" plantUmlBaseStyle="fillColor=#F1F1F1;strokeColor=#181818;" plantUmlBaseValue="" id="mlQdYnRGOc0fhGw4Xrnx-14">
+          <mxCell parent="mlQdYnRGOc0fhGw4Xrnx-7" style="fillColor=#F1F1F1;strokeColor=#181818;" vertex="1">
+            <mxGeometry height="2" width="4" x="300.5" y="165" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" plantUmlId="ci_16" plantUmlBaseStyle="fillColor=#F1F1F1;strokeColor=#181818;" plantUmlBaseValue="" id="mlQdYnRGOc0fhGw4Xrnx-15">
+          <mxCell parent="mlQdYnRGOc0fhGw4Xrnx-7" style="fillColor=#F1F1F1;strokeColor=#181818;" vertex="1">
+            <mxGeometry height="2" width="4" x="300.5" y="169" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Gestionnaire NFC&#xa;(nfc_manager)" plantUmlId="n_17" plantUmlBaseStyle="rounded=1;absoluteArcSize=1;arcSize=6;fillColor=#F1F1F1;strokeColor=#181818;fontSize=14;whiteSpace=wrap;" plantUmlBaseValue="Gestionnaire NFC&#xa;(nfc_manager)" id="mlQdYnRGOc0fhGw4Xrnx-16">
+          <mxCell parent="mlQdYnRGOc0fhGw4Xrnx-7" style="rounded=1;absoluteArcSize=1;arcSize=6;fillColor=#F1F1F1;strokeColor=#181818;fontSize=14;whiteSpace=wrap;" vertex="1">
+            <mxGeometry height="49" width="150" x="130.5" y="267" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" plantUmlId="ci_18" plantUmlBaseStyle="rounded=0;fillColor=#F1F1F1;strokeColor=#181818;" plantUmlBaseValue="" id="mlQdYnRGOc0fhGw4Xrnx-17">
+          <mxCell parent="mlQdYnRGOc0fhGw4Xrnx-7" style="rounded=0;fillColor=#F1F1F1;strokeColor=#181818;" vertex="1">
+            <mxGeometry height="10" width="15" x="260.5" y="272" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" plantUmlId="ci_19" plantUmlBaseStyle="fillColor=#F1F1F1;strokeColor=#181818;" plantUmlBaseValue="" id="mlQdYnRGOc0fhGw4Xrnx-18">
+          <mxCell parent="mlQdYnRGOc0fhGw4Xrnx-7" style="fillColor=#F1F1F1;strokeColor=#181818;" vertex="1">
+            <mxGeometry height="2" width="4" x="258.5" y="274" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" plantUmlId="ci_20" plantUmlBaseStyle="fillColor=#F1F1F1;strokeColor=#181818;" plantUmlBaseValue="" id="mlQdYnRGOc0fhGw4Xrnx-19">
+          <mxCell parent="mlQdYnRGOc0fhGw4Xrnx-7" style="fillColor=#F1F1F1;strokeColor=#181818;" vertex="1">
+            <mxGeometry height="2" width="4" x="258.5" y="278" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Client TCP&#xa;(Socket / Wi-Fi)" plantUmlId="n_21" plantUmlBaseStyle="rounded=1;absoluteArcSize=1;arcSize=6;fillColor=#F1F1F1;strokeColor=#181818;fontSize=14;whiteSpace=wrap;" plantUmlBaseValue="Client TCP&#xa;(Socket / Wi-Fi)" id="mlQdYnRGOc0fhGw4Xrnx-20">
+          <mxCell parent="mlQdYnRGOc0fhGw4Xrnx-7" style="rounded=1;absoluteArcSize=1;arcSize=6;fillColor=#F1F1F1;strokeColor=#181818;fontSize=14;whiteSpace=wrap;" vertex="1">
+            <mxGeometry height="49" width="144" x="252" y="49" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" plantUmlId="ci_22" plantUmlBaseStyle="rounded=0;fillColor=#F1F1F1;strokeColor=#181818;" plantUmlBaseValue="" id="mlQdYnRGOc0fhGw4Xrnx-21">
+          <mxCell parent="mlQdYnRGOc0fhGw4Xrnx-7" style="rounded=0;fillColor=#F1F1F1;strokeColor=#181818;" vertex="1">
+            <mxGeometry height="10" width="15" x="376" y="54" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" plantUmlId="ci_23" plantUmlBaseStyle="fillColor=#F1F1F1;strokeColor=#181818;" plantUmlBaseValue="" id="mlQdYnRGOc0fhGw4Xrnx-22">
+          <mxCell parent="mlQdYnRGOc0fhGw4Xrnx-7" style="fillColor=#F1F1F1;strokeColor=#181818;" vertex="1">
+            <mxGeometry height="2" width="4" x="374" y="56" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" plantUmlId="ci_24" plantUmlBaseStyle="fillColor=#F1F1F1;strokeColor=#181818;" plantUmlBaseValue="" id="mlQdYnRGOc0fhGw4Xrnx-23">
+          <mxCell parent="mlQdYnRGOc0fhGw4Xrnx-7" style="fillColor=#F1F1F1;strokeColor=#181818;" vertex="1">
+            <mxGeometry height="2" width="4" x="374" y="60" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="1. Déclenche l&#39;UI" plantUmlId="e_55" plantUmlBaseStyle="strokeColor=#181818;fontColor=#000000;fontSize=12;html=1;endArrow=classicThin;endFill=1;" plantUmlBaseValue="1. Déclenche l&#39;UI" id="mlQdYnRGOc0fhGw4Xrnx-57">
+          <mxCell edge="1" parent="mlQdYnRGOc0fhGw4Xrnx-7" source="mlQdYnRGOc0fhGw4Xrnx-8" style="strokeColor=#181818;fontColor=#000000;fontSize=12;html=1;endArrow=classicThin;endFill=1;rounded=0;" target="mlQdYnRGOc0fhGw4Xrnx-12">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="2. Active l&#39;écoute" plantUmlId="e_56" plantUmlBaseStyle="strokeColor=#181818;fontColor=#000000;fontSize=12;html=1;endArrow=classicThin;endFill=1;" plantUmlBaseValue="2. Active l&#39;écoute" id="mlQdYnRGOc0fhGw4Xrnx-58">
+          <mxCell edge="1" parent="mlQdYnRGOc0fhGw4Xrnx-7" source="mlQdYnRGOc0fhGw4Xrnx-12" style="strokeColor=#181818;fontColor=#000000;fontSize=12;html=1;endArrow=classicThin;endFill=1;rounded=0;" target="mlQdYnRGOc0fhGw4Xrnx-16">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" plantUmlId="ci_6" plantUmlBaseStyle="rounded=0;fillColor=none;strokeColor=#181818;" plantUmlBaseValue="" id="mlQdYnRGOc0fhGw4Xrnx-24">
+          <mxCell parent="mlQdYnRGOc0fhGw4Xrnx-2" style="rounded=0;fillColor=none;strokeColor=#181818;" vertex="1">
+            <mxGeometry height="10" width="15" x="406" y="48" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" plantUmlId="ci_7" plantUmlBaseStyle="fillColor=none;strokeColor=#181818;" plantUmlBaseValue="" id="mlQdYnRGOc0fhGw4Xrnx-25">
+          <mxCell parent="mlQdYnRGOc0fhGw4Xrnx-2" style="fillColor=none;strokeColor=#181818;" vertex="1">
+            <mxGeometry height="2" width="4" x="404" y="50" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" plantUmlId="ci_8" plantUmlBaseStyle="fillColor=none;strokeColor=#181818;" plantUmlBaseValue="" id="mlQdYnRGOc0fhGw4Xrnx-26">
+          <mxCell parent="mlQdYnRGOc0fhGw4Xrnx-2" style="fillColor=none;strokeColor=#181818;" vertex="1">
+            <mxGeometry height="2" width="4" x="404" y="54" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Lit le tag NDEF" plantUmlId="e_57" plantUmlBaseStyle="strokeColor=#181818;fontColor=#000000;fontSize=12;html=1;endArrow=classicThin;endFill=1;dashed=1;dashPattern=2 2;" plantUmlBaseValue="Lit le tag NDEF" id="mlQdYnRGOc0fhGw4Xrnx-59">
+          <mxCell edge="1" parent="mlQdYnRGOc0fhGw4Xrnx-2" source="mlQdYnRGOc0fhGw4Xrnx-16" style="strokeColor=#181818;fontColor=#000000;fontSize=12;html=1;endArrow=classicThin;endFill=1;dashed=1;dashPattern=2 2;rounded=0;" target="mlQdYnRGOc0fhGw4Xrnx-3">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Envoie le fichier" plantUmlId="e_58" plantUmlBaseStyle="strokeColor=#181818;fontColor=#000000;fontSize=12;html=1;endArrow=classicThin;endFill=1;dashed=1;dashPattern=2 2;" plantUmlBaseValue="Envoie le fichier" id="mlQdYnRGOc0fhGw4Xrnx-60">
+          <mxCell edge="1" parent="mlQdYnRGOc0fhGw4Xrnx-2" source="mlQdYnRGOc0fhGw4Xrnx-20" style="strokeColor=#181818;fontColor=#000000;fontSize=12;html=1;endArrow=classicThin;endFill=1;dashed=1;dashPattern=2 2;rounded=0;" target="mlQdYnRGOc0fhGw4Xrnx-5">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Matériel : Dell Latitude (Serveur)" plantUmlId="c_25" plantUmlBaseStyle="shape=cube;size=10;fillColor=none;strokeColor=#181818;verticalAlign=top;align=center;spacingTop=16;fontSize=14;fontStyle=1;whiteSpace=wrap;" plantUmlBaseValue="Matériel : Dell Latitude (Serveur)" id="mlQdYnRGOc0fhGw4Xrnx-27">
+          <mxCell parent="mlQdYnRGOc0fhGw4Xrnx-1" style="shape=cube;size=10;fillColor=none;strokeColor=#181818;verticalAlign=top;align=center;spacingTop=16;fontSize=14;fontStyle=1;whiteSpace=wrap;" vertex="1">
+            <mxGeometry height="696" width="437" x="37" y="30" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" plantUmlId="n_26" plantUmlBaseStyle="ellipse;fillColor=#F1F1F1;strokeColor=#181818;" plantUmlBaseValue="" id="mlQdYnRGOc0fhGw4Xrnx-28">
+          <mxCell parent="mlQdYnRGOc0fhGw4Xrnx-27" style="ellipse;fillColor=#F1F1F1;strokeColor=#181818;" vertex="1">
+            <mxGeometry height="18" width="18" x="204.5" y="640" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Pilote Proximity Provider&#xa;(Matériel)" plantUmlId="cap_27" plantUmlBaseStyle="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;fontSize=14;whiteSpace=wrap;" plantUmlBaseValue="Pilote Proximity Provider&#xa;(Matériel)" id="mlQdYnRGOc0fhGw4Xrnx-29">
+          <mxCell parent="mlQdYnRGOc0fhGw4Xrnx-27" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;fontSize=14;whiteSpace=wrap;" vertex="1">
+            <mxGeometry height="22" width="173" x="127" y="658" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" plantUmlId="n_28" plantUmlBaseStyle="ellipse;fillColor=#F1F1F1;strokeColor=#181818;" plantUmlBaseValue="" id="mlQdYnRGOc0fhGw4Xrnx-30">
+          <mxCell parent="mlQdYnRGOc0fhGw4Xrnx-27" style="ellipse;fillColor=#F1F1F1;strokeColor=#181818;" vertex="1">
+            <mxGeometry height="18" width="18" x="204.5" y="43" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Carte Wi-Fi&#xa;(Matériel)" plantUmlId="cap_29" plantUmlBaseStyle="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;fontSize=14;whiteSpace=wrap;" plantUmlBaseValue="Carte Wi-Fi&#xa;(Matériel)" id="mlQdYnRGOc0fhGw4Xrnx-31">
+          <mxCell parent="mlQdYnRGOc0fhGw4Xrnx-27" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;fontSize=14;whiteSpace=wrap;" vertex="1">
+            <mxGeometry height="22" width="81" x="173" y="61" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Service Modeste Graphics&#xa;(C# WPF / Windows)" plantUmlId="c_30" plantUmlBaseStyle="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=none;strokeColor=#181818;verticalAlign=top;align=center;spacingTop=10;fontSize=14;whiteSpace=wrap;" plantUmlBaseValue="Service Modeste Graphics&#xa;(C# WPF / Windows)" id="mlQdYnRGOc0fhGw4Xrnx-32">
+          <mxCell parent="mlQdYnRGOc0fhGw4Xrnx-27" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=none;strokeColor=#181818;verticalAlign=top;align=center;spacingTop=10;fontSize=14;whiteSpace=wrap;" vertex="1">
+            <mxGeometry height="437" width="397" x="15" y="143" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Service d&#39;Arrière-plan&#xa;(System Tray)" plantUmlId="n_34" plantUmlBaseStyle="rounded=1;absoluteArcSize=1;arcSize=6;fillColor=#F1F1F1;strokeColor=#181818;fontSize=14;whiteSpace=wrap;" plantUmlBaseValue="Service d&#39;Arrière-plan&#xa;(System Tray)" id="mlQdYnRGOc0fhGw4Xrnx-33">
+          <mxCell parent="mlQdYnRGOc0fhGw4Xrnx-32" style="rounded=1;absoluteArcSize=1;arcSize=6;fillColor=#F1F1F1;strokeColor=#181818;fontSize=14;whiteSpace=wrap;" vertex="1">
+            <mxGeometry height="49" width="194" x="101.5" y="49" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" plantUmlId="ci_35" plantUmlBaseStyle="rounded=0;fillColor=#F1F1F1;strokeColor=#181818;" plantUmlBaseValue="" id="mlQdYnRGOc0fhGw4Xrnx-34">
+          <mxCell parent="mlQdYnRGOc0fhGw4Xrnx-32" style="rounded=0;fillColor=#F1F1F1;strokeColor=#181818;" vertex="1">
+            <mxGeometry height="10" width="15" x="275.5" y="54" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" plantUmlId="ci_36" plantUmlBaseStyle="fillColor=#F1F1F1;strokeColor=#181818;" plantUmlBaseValue="" id="mlQdYnRGOc0fhGw4Xrnx-35">
+          <mxCell parent="mlQdYnRGOc0fhGw4Xrnx-32" style="fillColor=#F1F1F1;strokeColor=#181818;" vertex="1">
+            <mxGeometry height="2" width="4" x="273.5" y="56" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" plantUmlId="ci_37" plantUmlBaseStyle="fillColor=#F1F1F1;strokeColor=#181818;" plantUmlBaseValue="" id="mlQdYnRGOc0fhGw4Xrnx-36">
+          <mxCell parent="mlQdYnRGOc0fhGw4Xrnx-32" style="fillColor=#F1F1F1;strokeColor=#181818;" vertex="1">
+            <mxGeometry height="2" width="4" x="273.5" y="60" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Contrôleur NFC&#xa;(Proximity API)" plantUmlId="n_38" plantUmlBaseStyle="rounded=1;absoluteArcSize=1;arcSize=6;fillColor=#F1F1F1;strokeColor=#181818;fontSize=14;whiteSpace=wrap;" plantUmlBaseValue="Contrôleur NFC&#xa;(Proximity API)" id="mlQdYnRGOc0fhGw4Xrnx-37">
+          <mxCell parent="mlQdYnRGOc0fhGw4Xrnx-32" style="rounded=1;absoluteArcSize=1;arcSize=6;fillColor=#F1F1F1;strokeColor=#181818;fontSize=14;whiteSpace=wrap;" vertex="1">
+            <mxGeometry height="49" width="138" x="15" y="158" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" plantUmlId="ci_39" plantUmlBaseStyle="rounded=0;fillColor=#F1F1F1;strokeColor=#181818;" plantUmlBaseValue="" id="mlQdYnRGOc0fhGw4Xrnx-38">
+          <mxCell parent="mlQdYnRGOc0fhGw4Xrnx-32" style="rounded=0;fillColor=#F1F1F1;strokeColor=#181818;" vertex="1">
+            <mxGeometry height="10" width="15" x="133" y="163" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" plantUmlId="ci_40" plantUmlBaseStyle="fillColor=#F1F1F1;strokeColor=#181818;" plantUmlBaseValue="" id="mlQdYnRGOc0fhGw4Xrnx-39">
+          <mxCell parent="mlQdYnRGOc0fhGw4Xrnx-32" style="fillColor=#F1F1F1;strokeColor=#181818;" vertex="1">
+            <mxGeometry height="2" width="4" x="131" y="165" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" plantUmlId="ci_41" plantUmlBaseStyle="fillColor=#F1F1F1;strokeColor=#181818;" plantUmlBaseValue="" id="mlQdYnRGOc0fhGw4Xrnx-40">
+          <mxCell parent="mlQdYnRGOc0fhGw4Xrnx-32" style="fillColor=#F1F1F1;strokeColor=#181818;" vertex="1">
+            <mxGeometry height="2" width="4" x="131" y="169" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Écouteur TCP&#xa;(TcpListener Port 8080)" plantUmlId="n_42" plantUmlBaseStyle="rounded=1;absoluteArcSize=1;arcSize=6;fillColor=#F1F1F1;strokeColor=#181818;fontSize=14;whiteSpace=wrap;" plantUmlBaseValue="Écouteur TCP&#xa;(TcpListener Port 8080)" id="mlQdYnRGOc0fhGw4Xrnx-41">
+          <mxCell parent="mlQdYnRGOc0fhGw4Xrnx-32" style="rounded=1;absoluteArcSize=1;arcSize=6;fillColor=#F1F1F1;strokeColor=#181818;fontSize=14;whiteSpace=wrap;" vertex="1">
+            <mxGeometry height="49" width="194" x="188" y="158" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" plantUmlId="ci_43" plantUmlBaseStyle="rounded=0;fillColor=#F1F1F1;strokeColor=#181818;" plantUmlBaseValue="" id="mlQdYnRGOc0fhGw4Xrnx-42">
+          <mxCell parent="mlQdYnRGOc0fhGw4Xrnx-32" style="rounded=0;fillColor=#F1F1F1;strokeColor=#181818;" vertex="1">
+            <mxGeometry height="10" width="15" x="362" y="163" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" plantUmlId="ci_44" plantUmlBaseStyle="fillColor=#F1F1F1;strokeColor=#181818;" plantUmlBaseValue="" id="mlQdYnRGOc0fhGw4Xrnx-43">
+          <mxCell parent="mlQdYnRGOc0fhGw4Xrnx-32" style="fillColor=#F1F1F1;strokeColor=#181818;" vertex="1">
+            <mxGeometry height="2" width="4" x="360" y="165" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" plantUmlId="ci_45" plantUmlBaseStyle="fillColor=#F1F1F1;strokeColor=#181818;" plantUmlBaseValue="" id="mlQdYnRGOc0fhGw4Xrnx-44">
+          <mxCell parent="mlQdYnRGOc0fhGw4Xrnx-32" style="fillColor=#F1F1F1;strokeColor=#181818;" vertex="1">
+            <mxGeometry height="2" width="4" x="360" y="169" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Système de Fichiers&#xa;(Dossier Téléchargements)" plantUmlId="n_46" plantUmlBaseStyle="rounded=1;absoluteArcSize=1;arcSize=6;fillColor=#F1F1F1;strokeColor=#181818;fontSize=14;whiteSpace=wrap;" plantUmlBaseValue="Système de Fichiers&#xa;(Dossier Téléchargements)" id="mlQdYnRGOc0fhGw4Xrnx-45">
+          <mxCell parent="mlQdYnRGOc0fhGw4Xrnx-32" style="rounded=1;absoluteArcSize=1;arcSize=6;fillColor=#F1F1F1;strokeColor=#181818;fontSize=14;whiteSpace=wrap;" vertex="1">
+            <mxGeometry height="49" width="217" x="90" y="267" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" plantUmlId="ci_47" plantUmlBaseStyle="rounded=0;fillColor=#F1F1F1;strokeColor=#181818;" plantUmlBaseValue="" id="mlQdYnRGOc0fhGw4Xrnx-46">
+          <mxCell parent="mlQdYnRGOc0fhGw4Xrnx-32" style="rounded=0;fillColor=#F1F1F1;strokeColor=#181818;" vertex="1">
+            <mxGeometry height="10" width="15" x="287" y="272" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" plantUmlId="ci_48" plantUmlBaseStyle="fillColor=#F1F1F1;strokeColor=#181818;" plantUmlBaseValue="" id="mlQdYnRGOc0fhGw4Xrnx-47">
+          <mxCell parent="mlQdYnRGOc0fhGw4Xrnx-32" style="fillColor=#F1F1F1;strokeColor=#181818;" vertex="1">
+            <mxGeometry height="2" width="4" x="285" y="274" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" plantUmlId="ci_49" plantUmlBaseStyle="fillColor=#F1F1F1;strokeColor=#181818;" plantUmlBaseValue="" id="mlQdYnRGOc0fhGw4Xrnx-48">
+          <mxCell parent="mlQdYnRGOc0fhGw4Xrnx-32" style="fillColor=#F1F1F1;strokeColor=#181818;" vertex="1">
+            <mxGeometry height="2" width="4" x="285" y="278" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Overlay WPF&#xa;(Fenêtre sans bordure)" plantUmlId="n_50" plantUmlBaseStyle="rounded=1;absoluteArcSize=1;arcSize=6;fillColor=#F1F1F1;strokeColor=#181818;fontSize=14;whiteSpace=wrap;" plantUmlBaseValue="Overlay WPF&#xa;(Fenêtre sans bordure)" id="mlQdYnRGOc0fhGw4Xrnx-49">
+          <mxCell parent="mlQdYnRGOc0fhGw4Xrnx-32" style="rounded=1;absoluteArcSize=1;arcSize=6;fillColor=#F1F1F1;strokeColor=#181818;fontSize=14;whiteSpace=wrap;" vertex="1">
+            <mxGeometry height="49" width="194" x="101.5" y="376" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" plantUmlId="ci_51" plantUmlBaseStyle="rounded=0;fillColor=#F1F1F1;strokeColor=#181818;" plantUmlBaseValue="" id="mlQdYnRGOc0fhGw4Xrnx-50">
+          <mxCell parent="mlQdYnRGOc0fhGw4Xrnx-32" style="rounded=0;fillColor=#F1F1F1;strokeColor=#181818;" vertex="1">
+            <mxGeometry height="10" width="15" x="275.5" y="381" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" plantUmlId="ci_52" plantUmlBaseStyle="fillColor=#F1F1F1;strokeColor=#181818;" plantUmlBaseValue="" id="mlQdYnRGOc0fhGw4Xrnx-51">
+          <mxCell parent="mlQdYnRGOc0fhGw4Xrnx-32" style="fillColor=#F1F1F1;strokeColor=#181818;" vertex="1">
+            <mxGeometry height="2" width="4" x="273.5" y="383" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" plantUmlId="ci_53" plantUmlBaseStyle="fillColor=#F1F1F1;strokeColor=#181818;" plantUmlBaseValue="" id="mlQdYnRGOc0fhGw4Xrnx-52">
+          <mxCell parent="mlQdYnRGOc0fhGw4Xrnx-32" style="fillColor=#F1F1F1;strokeColor=#181818;" vertex="1">
+            <mxGeometry height="2" width="4" x="273.5" y="387" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="1. Configure l&#39;IP" plantUmlId="e_59" plantUmlBaseStyle="strokeColor=#181818;fontColor=#000000;fontSize=12;html=1;endArrow=classicThin;endFill=1;" plantUmlBaseValue="1. Configure l&#39;IP" id="mlQdYnRGOc0fhGw4Xrnx-61">
+          <mxCell edge="1" parent="mlQdYnRGOc0fhGw4Xrnx-32" source="mlQdYnRGOc0fhGw4Xrnx-33" style="strokeColor=#181818;fontColor=#000000;fontSize=12;html=1;endArrow=classicThin;endFill=1;rounded=0;" target="mlQdYnRGOc0fhGw4Xrnx-37">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="2. Ouvre le port" plantUmlId="e_60" plantUmlBaseStyle="strokeColor=#181818;fontColor=#000000;fontSize=12;html=1;endArrow=classicThin;endFill=1;" plantUmlBaseValue="2. Ouvre le port" id="mlQdYnRGOc0fhGw4Xrnx-62">
+          <mxCell edge="1" parent="mlQdYnRGOc0fhGw4Xrnx-32" source="mlQdYnRGOc0fhGw4Xrnx-33" style="strokeColor=#181818;fontColor=#000000;fontSize=12;html=1;endArrow=classicThin;endFill=1;rounded=0;" target="mlQdYnRGOc0fhGw4Xrnx-41">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="3. Sauvegarde" plantUmlId="e_63" plantUmlBaseStyle="strokeColor=#181818;fontColor=#000000;fontSize=12;html=1;endArrow=classicThin;endFill=1;" plantUmlBaseValue="3. Sauvegarde" id="mlQdYnRGOc0fhGw4Xrnx-65">
+          <mxCell edge="1" parent="mlQdYnRGOc0fhGw4Xrnx-32" source="mlQdYnRGOc0fhGw4Xrnx-41" style="strokeColor=#181818;fontColor=#000000;fontSize=12;html=1;endArrow=classicThin;endFill=1;rounded=0;" target="mlQdYnRGOc0fhGw4Xrnx-45">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="4. Invoque la carte" plantUmlId="e_64" plantUmlBaseStyle="strokeColor=#181818;fontColor=#000000;fontSize=12;html=1;endArrow=classicThin;endFill=1;" plantUmlBaseValue="4. Invoque la carte" id="mlQdYnRGOc0fhGw4Xrnx-66">
+          <mxCell edge="1" parent="mlQdYnRGOc0fhGw4Xrnx-32" source="mlQdYnRGOc0fhGw4Xrnx-45" style="strokeColor=#181818;fontColor=#000000;fontSize=12;html=1;endArrow=classicThin;endFill=1;rounded=0;" target="mlQdYnRGOc0fhGw4Xrnx-49">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" plantUmlId="ci_31" plantUmlBaseStyle="rounded=0;fillColor=none;strokeColor=#181818;" plantUmlBaseValue="" id="mlQdYnRGOc0fhGw4Xrnx-53">
+          <mxCell parent="mlQdYnRGOc0fhGw4Xrnx-27" style="rounded=0;fillColor=none;strokeColor=#181818;" vertex="1">
+            <mxGeometry height="10" width="15" x="392" y="148" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" plantUmlId="ci_32" plantUmlBaseStyle="fillColor=none;strokeColor=#181818;" plantUmlBaseValue="" id="mlQdYnRGOc0fhGw4Xrnx-54">
+          <mxCell parent="mlQdYnRGOc0fhGw4Xrnx-27" style="fillColor=none;strokeColor=#181818;" vertex="1">
+            <mxGeometry height="2" width="4" x="390" y="150" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" plantUmlId="ci_33" plantUmlBaseStyle="fillColor=none;strokeColor=#181818;" plantUmlBaseValue="" id="mlQdYnRGOc0fhGw4Xrnx-55">
+          <mxCell parent="mlQdYnRGOc0fhGw4Xrnx-27" style="fillColor=none;strokeColor=#181818;" vertex="1">
+            <mxGeometry height="2" width="4" x="390" y="154" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Diffuse le signal" plantUmlId="e_61" plantUmlBaseStyle="strokeColor=#181818;fontColor=#000000;fontSize=12;html=1;endArrow=classicThin;endFill=1;dashed=1;dashPattern=2 2;" plantUmlBaseValue="Diffuse le signal" id="mlQdYnRGOc0fhGw4Xrnx-63">
+          <mxCell edge="1" parent="mlQdYnRGOc0fhGw4Xrnx-27" source="mlQdYnRGOc0fhGw4Xrnx-37" style="strokeColor=#181818;fontColor=#000000;fontSize=12;html=1;endArrow=classicThin;endFill=1;dashed=1;dashPattern=2 2;rounded=0;" target="mlQdYnRGOc0fhGw4Xrnx-28">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Reçoit les données" plantUmlId="e_62" plantUmlBaseStyle="strokeColor=#181818;fontColor=#000000;fontSize=12;html=1;endArrow=classicThin;endFill=1;dashed=1;dashPattern=2 2;" plantUmlBaseValue="Reçoit les données" id="mlQdYnRGOc0fhGw4Xrnx-64">
+          <mxCell edge="1" parent="mlQdYnRGOc0fhGw4Xrnx-27" source="mlQdYnRGOc0fhGw4Xrnx-30" style="strokeColor=#181818;fontColor=#000000;fontSize=12;html=1;endArrow=classicThin;endFill=1;dashed=1;dashPattern=2 2;rounded=0;" target="mlQdYnRGOc0fhGw4Xrnx-41">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Réseau Local (Wi-Fi)" plantUmlId="n_54" plantUmlBaseStyle="shape=cloud;fillColor=#F1F1F1;strokeColor=#181818;whiteSpace=wrap;" plantUmlBaseValue="Réseau Local (Wi-Fi)" id="mlQdYnRGOc0fhGw4Xrnx-56">
+          <mxCell parent="mlQdYnRGOc0fhGw4Xrnx-1" style="shape=cloud;fillColor=#F1F1F1;strokeColor=#181818;whiteSpace=wrap;" vertex="1">
+            <mxGeometry height="49" width="175" x="168" y="1297" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Contact Physique (Handshake)" plantUmlId="e_65" plantUmlBaseStyle="strokeColor=#181818;fontColor=#000000;fontSize=12;html=1;endArrow=classicThin;endFill=1;startArrow=classicThin;startFill=1;dashed=1;dashPattern=2 2;" plantUmlBaseValue="Contact Physique (Handshake)" id="mlQdYnRGOc0fhGw4Xrnx-67">
+          <mxCell edge="1" parent="mlQdYnRGOc0fhGw4Xrnx-1" source="mlQdYnRGOc0fhGw4Xrnx-28" style="strokeColor=#181818;fontColor=#000000;fontSize=12;html=1;endArrow=classicThin;endFill=1;startArrow=classicThin;startFill=1;dashed=1;dashPattern=2 2;rounded=0;" target="mlQdYnRGOc0fhGw4Xrnx-3">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Flux binaire" plantUmlId="e_66" plantUmlBaseStyle="strokeColor=#181818;fontColor=#000000;fontSize=12;html=1;endArrow=classicThin;endFill=1;" plantUmlBaseValue="Flux binaire" id="mlQdYnRGOc0fhGw4Xrnx-68">
+          <mxCell edge="1" parent="mlQdYnRGOc0fhGw4Xrnx-1" source="mlQdYnRGOc0fhGw4Xrnx-5" style="strokeColor=#181818;fontColor=#000000;fontSize=12;html=1;endArrow=classicThin;endFill=1;rounded=0;" target="mlQdYnRGOc0fhGw4Xrnx-56">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Flux binaire" plantUmlId="e_67" plantUmlBaseStyle="strokeColor=#181818;fontColor=#000000;fontSize=12;html=1;endArrow=classicThin;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" plantUmlBaseValue="Flux binaire" id="mlQdYnRGOc0fhGw4Xrnx-69">
+          <mxCell edge="1" parent="mlQdYnRGOc0fhGw4Xrnx-1" source="mlQdYnRGOc0fhGw4Xrnx-56" style="strokeColor=#181818;fontColor=#000000;fontSize=12;html=1;endArrow=classicThin;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;rounded=0;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="509" y="1321.5" />
+                <mxPoint x="509" y="93" />
+              </Array>
+              <mxPoint x="343" y="1321.5" as="sourcePoint" />
+              <mxPoint x="291" y="93" as="targetPoint" />
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

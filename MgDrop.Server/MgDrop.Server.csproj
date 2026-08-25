@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows10.0.19041.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>MgDrop.Server</RootNamespace>
+    <AssemblyName>MgDrop.Server</AssemblyName>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <!-- Permet l'accès aux APIs WinRT (Windows.Networking.Proximity) -->
+    <UseWinRT>true</UseWinRT>
+    <!-- Icône de l'application -->
+    <ApplicationIcon />
+  </PropertyGroup>
+
+</Project>

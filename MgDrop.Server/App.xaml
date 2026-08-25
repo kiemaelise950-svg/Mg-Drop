@@ -1,0 +1,111 @@
+<Application x:Class="MgDrop.Server.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="Views/NotificationOverlay.xaml"
+             Startup="App_OnStartup"
+             Exit="App_OnExit">
+
+    <Application.Resources>
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- DESIGN SYSTEM — Modeste Graphics / MG Drop                    -->
+        <!-- Charte Glassmorphic traduite du Stitch Design en XAML          -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+
+        <!-- ── Couleurs principales ──────────────────────────────────── -->
+        <Color x:Key="PrimaryColor">#0E2F76</Color>
+        <Color x:Key="SecondaryColor">#AAC0E1</Color>
+        <Color x:Key="SurfaceGlacialColor">#F5FEFF</Color>
+        <Color x:Key="GlassBackgroundColor">#19FFFFFF</Color>  <!-- white/10 -->
+        <Color x:Key="GlassBorderColor">#4DFFFFFF</Color>      <!-- white/30 -->
+        <Color x:Key="SuccessColor">#34C78A</Color>
+
+        <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource PrimaryColor}" />
+        <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource SecondaryColor}" />
+        <SolidColorBrush x:Key="SurfaceGlacialBrush" Color="{StaticResource SurfaceGlacialColor}" />
+        <SolidColorBrush x:Key="GlassBackgroundBrush" Color="{StaticResource GlassBackgroundColor}" />
+        <SolidColorBrush x:Key="GlassBorderBrush" Color="{StaticResource GlassBorderColor}" />
+        <SolidColorBrush x:Key="SuccessBrush" Color="{StaticResource SuccessColor}" />
+
+        <!-- ── Typographie ───────────────────────────────────────────── -->
+        <FontFamily x:Key="PrimaryFont">Segoe UI Variable, Segoe UI, Inter</FontFamily>
+
+        <!-- ── Style du bouton "Ouvrir" (Primary Action) ─────────────── -->
+        <Style x:Key="PrimaryButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="{StaticResource SurfaceGlacialBrush}" />
+            <Setter Property="Foreground" Value="{StaticResource PrimaryBrush}" />
+            <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}" />
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="FontWeight" Value="Medium" />
+            <Setter Property="Padding" Value="24,8" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="ButtonBorder"
+                                Background="{TemplateBinding Background}"
+                                CornerRadius="20"
+                                Padding="{TemplateBinding Padding}"
+                                SnapsToDevicePixels="True">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="ButtonBorder" Property="Opacity" Value="0.9" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="ButtonBorder" Property="RenderTransform">
+                                    <Setter.Value>
+                                        <ScaleTransform ScaleX="0.95" ScaleY="0.95" />
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter TargetName="ButtonBorder" Property="RenderTransformOrigin" Value="0.5,0.5" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- ── Style du bouton "Fermer" (Ghost/Outline) ──────────────── -->
+        <Style x:Key="GhostButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Foreground" Value="{StaticResource PrimaryBrush}" />
+            <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}" />
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="FontWeight" Value="Medium" />
+            <Setter Property="Padding" Value="16,8" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="ButtonBorder"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{StaticResource SecondaryBrush}"
+                                BorderThickness="1"
+                                CornerRadius="20"
+                                Opacity="0.5"
+                                Padding="{TemplateBinding Padding}"
+                                SnapsToDevicePixels="True">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="ButtonBorder" Property="Background">
+                                    <Setter.Value>
+                                        <SolidColorBrush Color="#33FFFFFF" />
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter TargetName="ButtonBorder" Property="Opacity" Value="0.8" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Application.Resources>
+</Application>
